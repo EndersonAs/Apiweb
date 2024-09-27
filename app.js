@@ -1,13 +1,27 @@
 const express = require('express')
 const app = express()
+const mongodb = require ('mongodb');
+const bodyParser = require ('body-parser');
 
 
+//llamar al bodey-parser
+app.use(bodyParser.json());
+//Importar las rutas
 
+const usersRoute = require('./routes/user')
+app.use('/usuarios', usersRoute);
+const loginRoute = require('./routes/login');
+app.use('/login', loginRoute);
+
+//ruta de prueba
+app.get('/', (req, res) => {
+  res.send('Prueba 1 de servidor!')
+})
+
+//mogodb
 //conexion a la bd
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://ender:123@cluster0.8auim.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -16,12 +30,6 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-
-
-app.get('/', (req, res) => {
-  res.send('Prueba 2 de servidor!')
-})
-
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -35,6 +43,8 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+
 
 
 
