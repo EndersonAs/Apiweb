@@ -12,7 +12,7 @@ async function connect() {
 }
 
 async function createUser(user) {
-  const db = client.db('Api_Web'); // Reemplaza 'testdb' con el nombre de tu base de datos
+  const db = client.db('Api_Web'); 
   const result = await db.collection('users').insertOne(user);
   return result;
 }

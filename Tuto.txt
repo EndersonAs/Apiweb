@@ -1,0 +1,24 @@
+PASO 1
+Registro de usuario 
+http://localhost:10000/usuarios  (url para registro)
+
+en Postman selecionamos el metodo POST Y En la pestaña Body, selecciona raw y JSON. 
+
+{
+  "user": "fulanito",
+  "password": "123",
+  "creation_date": "2024-09-27"
+}
+
+PASO 2
+Inicio de sesión
+http://localhost:10000/login  (url para login)
+
+en Postman selecionamos el metodo POST Y En la pestaña Body, selecciona raw y JSON. 
+
+{
+  "user": "fulanito",
+  "password": "123"
+}
+
+

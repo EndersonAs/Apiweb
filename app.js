@@ -45,8 +45,5 @@ async function run() {
 run().catch(console.dir);
 
 
-
-
-
 app.listen(10000);
 console.log('El servidor está corriendo en el puerto 10000');
